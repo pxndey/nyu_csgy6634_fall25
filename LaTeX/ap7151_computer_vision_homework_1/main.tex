@@ -320,7 +320,7 @@ d8 connectivity is defined as the connectivity of a pixel to the neighbors on it
 On computing the d8 connectivity of the given image, we get the following regions
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{figs/d8_connected_image.png}
+    \includegraphics[width=0.6\linewidth]{figs/D8_CONN.png}
     \caption{$d_8$ connectivity applied on the given image}
 \end{figure}
 
@@ -328,7 +328,7 @@ On computing the d8 connectivity of the given image, we get the following region
 \begin{itemize}
     \item There are a total of 3 8-connected structures
     \begin{itemize}
-        \item Two white structures (interior and the exterior)
+        \item One white structures
         \item One gray structure (curve)
     \end{itemize}
 \end{itemize}
@@ -336,7 +336,7 @@ On computing the d8 connectivity of the given image, we get the following region
 From Figure %%%%ref figure and backspace
 we can see that the longest gray structure has an area of 17 pixels. \newline
 
-Yes, this approach does follow Jordan's curve theorem as d8 connectivity can make the gray pixels into a simple closed curve, dividing the area of the image into an interior and an exterior.
+No, this approach does not follow Jordan's curve theorem as d8 connectivity can make the gray pixels into a simple closed curve, but the white pixels cannot be divided into an interior and an exterior.
 
 
 
@@ -352,24 +352,23 @@ Yes, this approach does follow Jordan's curve theorem as d8 connectivity can mak
 On computing the 6-C connectivity of the given image, we get the following regions
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{figs/6c_connected_image.png}
+    \includegraphics[width=0.8\linewidth]{figs/6C_connected_img.png}
     \caption{6C Connectivity applied on the given image}
 \end{figure}
 \begin{itemize}
     \item On using the first definition of 6-C connectivity, we get a total of 7 structures
     \begin{itemize}
-        \item Two white structures (interior and the exterior)
+        \item One white structure
         \item Five gray structures
     \end{itemize}
     \item On using the alternative definition of 6-C connectivity, we get a total of 7 structures
     \begin{itemize}
-        \item Two white structures (interior and exterior)
+        \item One white structures 
         \item Six gray structures
     \end{itemize}
 \end{itemize}
 \newline
-From Figure %%%%ref figure and backspace
-we can see that the longest gray structure has an area of 6 pixels in the first case and 7 pixels in the second case.
+From Figure we can see that the longest gray structure has an area of 6 pixels in the first case and 7 pixels in the second case.
 \newline
 This approach will not follow Jordan's curve theorem in either case as 6-C connectedness of the pixels does not make a simple closed curve in either case.
 
@@ -523,7 +522,7 @@ For $t = t-\tau$ (Transforming the shifted signal)
 \end{center}
 \begin{equation}
 \label{two}
-    V([t-\tau]) = x[t-\tau] - \mu
+    V(x[t-\tau]) = x[t-\tau] - \mu
 \end{equation}
 \newline
 From Equations \ref{one} and \ref{two} we can say that ${y[t-\tau] =V(x[t-\tau])}$ , which proves the linearity of the given filter ${V(x[t]) = x[t] - \mu}$ .
@@ -578,7 +577,7 @@ $\therefore$ The median filter cannot be called convolution, as it violates the 
 
 \section{2D Filters and Fourier Transforms}
 \subsection{Sobel Filter Complexity}
-A vertical edge sobel filter can be defined as follows:
+A horizontal edge sobel filter can be defined as follows:
 \[
 \frac{1}{8}
 \begin{bmatrix}
