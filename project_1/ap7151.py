@@ -271,7 +271,7 @@ def classify_constellation(valid_patches, constellation_data, sky_image_shape, v
             print(f"  {constellation_name}: {similarity:.3f} (pattern has {len(pattern_coords)} stars)")
     
     # Only return a match if the score is above a reasonable threshold
-    min_threshold = 0.4  # Require at least 40% similarity
+    min_threshold = 0.6  # Require at least 40% similarity
     if best_score < min_threshold:
         if verbose:
             print(f"Best match {best_match} with score {best_score:.3f} below threshold {min_threshold}")
@@ -337,7 +337,7 @@ def process_constellation_folder(constellation_folder, constellation_data, verbo
             continue
         
         # Perform template matching
-        x, y, confidence = template_match_patch(sky_image, patch_image, threshold=0.6)
+        x, y, confidence = template_match_patch(sky_image, patch_image, threshold=0.8)
         
         if x is not None and y is not None:
             patch_results[patch_name] = (x, y)
